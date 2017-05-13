@@ -1,0 +1,21 @@
+
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile project(':soouya-springmvc')
+    compile project(':soouya-qs-common')
+    compile project(':soouya-qs-domain')
+    compile project(':soouya-qs-service')
+    compile project(':soouya-doc')
+
+    compile project(':soouya-service-common')
+    compile project(':soouya-web-common')
+    compile project(':soouya-springmvc')
+}

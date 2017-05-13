@@ -1,0 +1,13 @@
+rootProject.name = 'quickStartWeb'
+
+
+include 'soouya-web-common'
+include 'soouya-springmvc'
+include 'soouya-struts-core'
+include 'soouya-qs-service'
+include 'soouya-qs-war'
+include 'soouya-qs-common'
+include 'soouya-qs-domain'
+include 'soouya-doc'
+include 'soouya-service-common'
+
