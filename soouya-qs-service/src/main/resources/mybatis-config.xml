@@ -7,8 +7,8 @@
 		<property name="dialect" value="mysql" />
 	</properties>
 	<plugins>
-		<plugin interceptor="javacommon.dao.PaginationInterceptor" />
-		<plugin interceptor="javacommon.dao.ShowSQLInterceptor" />
+		<plugin interceptor="javacommon.base.mybatis.interceptor.PaginationInterceptor" />
+		<plugin interceptor="javacommon.base.mybatis.interceptor.ShowSQLInterceptor" />
 	</plugins>
 
 </configuration>

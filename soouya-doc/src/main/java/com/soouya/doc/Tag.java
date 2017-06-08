@@ -1,6 +1,6 @@
 package com.soouya.doc;
 
-import javacommon.util.JsonDoc;
+import javacommon.base.JsonDoc;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

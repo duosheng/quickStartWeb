@@ -15,10 +15,13 @@ allprojects {
     targetCompatibility = 1.7
 
     repositories {
-//        repositories { maven { url 'http://repo.qtonecloud.cn/content/groups/public' } }
-        repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
-        repositories { maven { url 'https://repo.eclipse.org/content/repositories/paho-releases/' } }
+        repositories { maven { url 'http://repo.qtonecloud.cn/content/groups/public' } }
+//        repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
+//        repositories { maven { url 'https://repo.eclipse.org/content/repositories/paho-releases/' } }
         mavenCentral()
+    }
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
     }
 
 }
@@ -26,6 +29,8 @@ allprojects {
 subprojects {
 
 }
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 task "create-dirs" << {
     sourceSets*.java.srcDirs*.each {

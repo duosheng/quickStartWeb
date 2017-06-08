@@ -1,6 +1,8 @@
 package javacommon.util;
 
-import com.soouya.common.exception.BusinessException;
+import javacommon.base.JsonDoc;
+import javacommon.base.RegexType;
+import javacommon.base.exception.BusinessException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.lang.reflect.Field;

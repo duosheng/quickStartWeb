@@ -1,6 +1,6 @@
 package com.soouya.springmvc;
 
-import com.soouya.common.exception.BusinessException;
+import javacommon.base.exception.BusinessException;
 import lombok.extern.log4j.Log4j;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerExceptionResolverComposite;

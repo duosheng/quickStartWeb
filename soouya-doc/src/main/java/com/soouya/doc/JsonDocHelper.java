@@ -1,7 +1,7 @@
 package com.soouya.doc;
 
 import com.soouya.common.util.DateHelper;
-import javacommon.util.JsonDoc;
+import javacommon.base.JsonDoc;
 import net.sf.json.JSONArray;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;

@@ -1,7 +1,6 @@
 package com.soouya.springmvc;
 
-import com.soouya.common.exception.BusinessException;
-import com.soouya.common.model.RoleBo;
+import javacommon.base.exception.BusinessException;
 import com.soouya.common.util.Code;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -17,8 +16,9 @@ import java.util.List;
 
 /**
  * Created by xuyuli on 2016/12/8.
+ *
+ * 权限管理控制器
  */
-// TODO 整个包应该build成一个完整的jar包，以便所有项目共享
 public class RoleControlInterceptor extends HandlerInterceptorAdapter {
 
     private IRoleListGet iRoleListGet;
@@ -68,32 +68,33 @@ public class RoleControlInterceptor extends HandlerInterceptorAdapter {
                     RoleCodeEnum[] value = rc.value();
                     List<RoleCodeEnum> roleCodeList = Arrays.asList(value);
                     //实际的登陆用户
-                    List<RoleBo> roleList = iRoleListGet.get();
-                    if (roleList == null) {
-                        throw new BusinessException(Code.NO_LOGIN, "用户未登录，权限认证失败");
-                    }
-                    if (roleList.size() == 0) {
-                        throw new BusinessException(Code.NO_LOGIN, "用户没有权限，权限认证失败");
-                    }
-
-                    if(roleCodeList.contains(RoleCodeEnum.ALL)){
-                        return true;
-                    }
-
-
-
-                    if (iRoleListGet.isAdmin()) {
-                        return true;// 管理员
-                    }
-
-                    if(roleList!=null && roleList.size()>0){
-                        for (RoleBo role : roleList) {
-                            String roleCode = role.getCode();
-                            if (roleCodeList.contains(RoleCodeEnum.fromCode(roleCode))) {
-                                return true;// auth success
-                            }
-                        }
-                    }
+                    // TODO 根据具体的业务
+//                    List<RoleBo> roleList = iRoleListGet.get();
+//                    if (roleList == null) {
+//                        throw new BusinessException(Code.NO_LOGIN, "用户未登录，权限认证失败");
+//                    }
+//                    if (roleList.size() == 0) {
+//                        throw new BusinessException(Code.NO_LOGIN, "用户没有权限，权限认证失败");
+//                    }
+//
+//                    if(roleCodeList.contains(RoleCodeEnum.ALL)){
+//                        return true;
+//                    }
+//
+//
+//
+//                    if (iRoleListGet.isAdmin()) {
+//                        return true;// 管理员
+//                    }
+//
+//                    if(roleList!=null && roleList.size()>0){
+//                        for (RoleBo role : roleList) {
+//                            String roleCode = role.getCode();
+//                            if (roleCodeList.contains(RoleCodeEnum.fromCode(roleCode))) {
+//                                return true;// auth success
+//                            }
+//                        }
+//                    }
 
                     return false;// auth fail
                 }

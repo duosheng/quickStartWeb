@@ -16,10 +16,10 @@ dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '20.0'
 //    compile group: 'org.apache.struts', name: 'struts2-core', version: '2.3.15.3'
 
-    compile group: 'org.springframework', name: 'spring-core', version: '4.1.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-tx', version: '4.1.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-context', version: '4.1.6.RELEASE'
-    compile group: 'org.springframework', name: 'spring-context-support', version: '4.1.6.RELEASE'
+
+
+
+    compile project(':soouya-service-common')
 
 
 }

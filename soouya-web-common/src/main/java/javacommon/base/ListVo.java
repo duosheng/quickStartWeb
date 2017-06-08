@@ -1,8 +1,6 @@
 package javacommon.base;
 
 
-import javacommon.util.JsonDoc;
-
 import java.util.List;
 
 /**

@@ -1,7 +1,5 @@
 package javacommon.base;
 
-import javacommon.util.JsonDoc;
-
 /**
  * Created by xuyuli on 2016/10/30.
  */

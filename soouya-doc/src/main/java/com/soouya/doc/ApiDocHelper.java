@@ -1,6 +1,6 @@
 package com.soouya.doc;
 
-import com.soouya.common.exception.BusinessException;
+import javacommon.base.exception.BusinessException;
 import javacommon.util.NullClass;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;

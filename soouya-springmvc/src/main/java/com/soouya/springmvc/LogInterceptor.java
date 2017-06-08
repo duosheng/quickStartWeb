@@ -3,7 +3,7 @@ package com.soouya.springmvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.soouya.auth.SessionUtil;
 import com.soouya.auth.SoouyaUser;
-import com.soouya.common.exception.BusinessException;
+import javacommon.base.exception.BusinessException;
 import com.soouya.common.util.IpUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;

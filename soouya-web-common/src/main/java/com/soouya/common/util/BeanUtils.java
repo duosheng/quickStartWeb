@@ -2,7 +2,6 @@ package com.soouya.common.util;
 
 import org.springframework.util.ReflectionUtils;
 
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -148,75 +147,6 @@ public class BeanUtils {
             handleReflectionException(e);
         }
     }
-
-    /**
-     * copy非空属性到目标对象
-     * @param dest
-     * @param orig
-     */
-    public static void copyNotNullProperties(Object dest, Object orig) {
-        if(dest==null || orig==null)
-            return;
-        try {
-            java.lang.reflect.Field[] fields = orig.getClass().getDeclaredFields();
-            for (int i = 0; i < fields.length; i++) {
-                String name = fields[i].getName();
-                if (PropertyUtils.isReadable(orig, name) && PropertyUtils.isWriteable(dest, name)) {
-                    Object value = PropertyUtils.getSimpleProperty(orig, name);
-                    if (value != null) {
-                        if(value instanceof String || value instanceof Integer || value instanceof Float || value instanceof Double || value instanceof Date)
-                            PropertyUtils.setSimpleProperty(dest, name, value);
-                        else
-                            copyNotNullProperties(PropertyUtils.getSimpleProperty(dest, name), value);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * copy非空属性到目标对象
-     * @param orig
-     */
-    public static String getNullProperties(Object orig) {
-        String dest = "";
-        if( orig==null)
-            return "";
-        try {
-            if(orig instanceof String || orig instanceof Integer || orig instanceof Float || orig instanceof Double || orig instanceof Date || orig instanceof Boolean) {
-                dest = orig + "";
-            }else {
-                java.lang.reflect.Field[] fields = orig.getClass().getDeclaredFields();
-                for (int i = 0; i < fields.length; i++) {
-                    String name = fields[i].getName();
-                    if (PropertyUtils.isReadable(orig, name)) {
-                        Object value = PropertyUtils.getSimpleProperty(orig, name);
-                        if (value != null) {
-                            if(value instanceof String || value instanceof Integer || value instanceof Float || value instanceof Double || value instanceof Date)
-                                dest += name+"="+value+"&";
-                            else
-                                dest += name+"={"+getNullProperties(value)+"}&";
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return dest;
-    }
-
-//    public static void main(String[] args) {
-////        Seed seed = new Seed();
-////        seed.setAddr("123");
-////        seed.setComments("haksdalsk");
-////        Flower flower = new Flower();
-////        flower.setDescr("nfksdjf");
-////        seed.setFlower(flower);
-//        System.out.println(getNullProperties(true));
-//    }
 
 
 }

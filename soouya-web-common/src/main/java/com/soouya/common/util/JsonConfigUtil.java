@@ -1,6 +1,6 @@
 package com.soouya.common.util;
 
-import com.soouya.common.exception.BusinessException;
+import javacommon.base.exception.BusinessException;
 import net.sf.json.JsonConfig;
 import net.sf.json.processors.JsonValueProcessor;
 import net.sf.json.processors.PropertyNameProcessor;
