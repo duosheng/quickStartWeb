@@ -3,32 +3,83 @@
 apply plugin: 'java'
 apply plugin: 'maven'
 
-
+apply from: 'dependencies.gradle'
 
 sourceCompatibility = 1.7
 
-/** 此闭包内的声明子类皆可使用 */
+/** 此闭包内的声明子类皆可使用(包括父项目) */
 allprojects {
 
-    group 'com.base.quickStartWeb'
-    version '1.0-SNAPSHOT'
+    //公司使用maven构建，所以需要转换成maven项目
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+
+    group = 'com.base.quickStartWeb'
+    // artifactId is taken by default, from folder name
+    version = '0.0.1-SNAPSHOT'
 
     sourceCompatibility = 1.7
     targetCompatibility = 1.7
 
     repositories {
-        repositories { maven { url 'http://repo.qtonecloud.cn/content/groups/public' } }
-//        repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
-//        repositories { maven { url 'https://repo.eclipse.org/content/repositories/paho-releases/' } }
+//        repositories { maven { url 'http://repo.qtonecloud.cn/content/groups/public' } }
+        repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
+        repositories { maven { url 'https://repo.eclipse.org/content/repositories/paho-releases/' } }
         mavenCentral()
     }
+
+    apply from: "${gradleScriptDir}/publish-maven.gradle"
+
+
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
     }
 
-}
+    // 生成pom.xml文件
+    task writeNewPom << {
+        pom {
+            project {
+                inceptionYear '2017'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+            }
+        }.writeTo("$buildDir/pom.xml")
+    }
 
+}
+/**
+ * 所以得子项目都有效
+ */
 subprojects {
+
+}
+/**
+ * Gradle的configure可以传入子项目数组，并为这些子项目设置相关配置
+ */
+configure(subprojects.findAll{it.name.contains('war')}){
+    apply plugin: 'war'
+
+    // 生成pom.xml文件
+    task writeWebPom << {
+        pom {
+            project {
+                packaging 'war'
+                inceptionYear '2017'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+            }
+        }.writeTo("$buildDir/pom.xml")
+    }
 
 }
 
@@ -42,3 +93,4 @@ task "create-dirs" << {
         it.mkdirs()
     }
 }
+

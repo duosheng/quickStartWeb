@@ -1,0 +1,15 @@
+allprojects {
+
+//    baseCommonVersion = "0.0.1-SNAPSHOT"
+
+//    qsVersion = "0.0.1-SNAPSHOT"
+
+    ext.springVersion = "4.1.0.RELEASE"
+
+    ext.mysqlConnectorVersion = "5.1.26"
+
+    ext.freemarkerVersion = "2.3.20"
+
+    ext.gradleScriptDir ="${rootProject.projectDir}/gradle"
+
+}

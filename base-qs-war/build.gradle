@@ -3,6 +3,11 @@
 apply plugin: 'java'
 apply plugin: 'war'
 
+apply plugin: 'maven'
+
+group = 'com.base.quickStartWeb'
+// artifactId is taken by default, from folder name
+version = '0.0.1-SNAPSHOT'
 
 
 
