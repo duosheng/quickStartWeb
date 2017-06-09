@@ -63,7 +63,7 @@ subprojects {
  */
 configure(subprojects.findAll{it.name.contains('war')}){
     apply plugin: 'war'
-    
+
 
     // 生成pom.xml文件
     task writeWebPom << {
