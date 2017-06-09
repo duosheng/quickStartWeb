@@ -1,6 +1,8 @@
 
 
 apply plugin: 'java'
+apply plugin: 'maven'
+
 
 
 sourceCompatibility = 1.7
@@ -8,7 +10,7 @@ sourceCompatibility = 1.7
 /** 此闭包内的声明子类皆可使用 */
 allprojects {
 
-    group 'com.soouya.quickStartWeb'
+    group 'com.base.quickStartWeb'
     version '1.0-SNAPSHOT'
 
     sourceCompatibility = 1.7

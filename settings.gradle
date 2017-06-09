@@ -2,16 +2,17 @@ rootProject.name = 'quickStartWeb'
 
 
 
-include 'soouya-qs-service'
-include 'soouya-qs-war'
-include 'soouya-qs-common'
-include 'soouya-qs-domain'
+include 'base-qs-service'
+include 'base-qs-war'
+include 'base-qs-common'
+include 'base-qs-domain'
 
 //  下面是公共组件包
-include 'soouya-doc'
-include 'soouya-service-common'
-include 'soouya-base-common'
-include 'soouya-mybatis-common'
-include 'soouya-web-common'
-include 'soouya-springmvc'
+include 'base-common'
+include 'base-doc'
+include 'base-service-common'
+include 'base-base-common'
+include 'base-mybatis-common'
+include 'base-web-common'
+include 'base-springmvc'
 
