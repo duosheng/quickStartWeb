@@ -1,0 +1,21 @@
+
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+
+
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile project(':base-springmvc')
+    compile project(':base-qs-common')
+    compile project(':base-qs-domain')
+    compile project(':base-qs-service')
+    compile project(':base-doc')
+
+    compile project(':base-service-common')
+    compile project(':base-web-common')
+    compile project(':base-springmvc')
+}
