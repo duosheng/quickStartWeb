@@ -1,20 +1,33 @@
 
 
 apply plugin: 'java'
-apply plugin: 'war'
 
-apply plugin: 'maven'
+//apply plugin: 'maven'
 
-group = 'com.base.quickStartWeb'
-// artifactId is taken by default, from folder name
-version = '0.0.1-SNAPSHOT'
+
+buildscript {
+    repositories {
+        repositories { maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' } }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+    }
+}
+
+apply plugin: 'spring-boot'
 
 
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+
+
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.8'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile "org.springframework:spring-test"
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
-    compile project(':base-springmvc')
     compile project(':base-qs-common')
     compile project(':base-qs-domain')
     compile project(':base-qs-service')
@@ -22,5 +35,5 @@ dependencies {
 
     compile project(':base-service-common')
     compile project(':base-web-common')
-    compile project(':base-springmvc')
+//    compile project(':base-springmvc')
 }
